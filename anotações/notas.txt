@@ -1,1 +1,107 @@
+CONFIGURAÇÃO INICIAL:
+config --global user.name "Victor Igor"
+config --global user.email "victor.0w3@hotmail.com"
+Entre no caminho: cd/wamp/www/git
 
+Criando um repositório: GIT INIT - (cria na pasta atual).git
+
+Sabendo status atual (como ta a ituação de trabalho): GIT STATUS
+
+(depois que adicionado todos os arquivos do projeto)..
+
+Começar a controla as alterações dele a partir de agora:
+git add readme.txt (git add *.txt) (git add .)-tudo
+passando para stage area
+git status (alterações para serem comitadas)
+
+(agora falta confirmar) tirar da stage area e mandar pro reporsitorio
+git commit -m "commit inicial" (a mensagem para identificar seu commit)
+
+git status (nothing to commit) nenhuma alteração pendente de salvamente! directorio de trabalho vazio.
+-------------------------------------------------------------------------------------------------------
+IGNORANDO ARQUIVOS QUE NAO PRECISA: 
+Cria um arquivo .gitignore (nao tem nome)
+Dentro dele coloca aquilo que vc quer ignorar: 
+.gitignore
+victor.txt(exemplo - arquivo)
+temp/ (diretorio) 
+-------------------------------------------------------------------------------------------------------
+PULANDO A ETAPA DE .ADD (mas nao fica na stage area) grava direto no repositorio do git
+depois de editar:
+git commit -a -m "Linhas adicionadas no readme"
+-------------------------------------------------------------------------------------------------------
+REVERTENDO ARQUIVOS EDITADOS PARA O ESTADO INICIAL:
+git checkout -- novo.php(nome do arquiv).
+-------------------------------------------------------------------------------------------------------
+REMOÇÃO DE ARQUIVOS
+quando quero remover:
+git rm novo.php 
+------------------------------------------------------------------------------------------------------
+MOSTRANDO TODOS OS COMMITS
+git log --pretty=oneline
+-----------------------------------------------------------------------------------------------------
+TAGS: (Não aconselhavel trabalhar com as versões por ser simples ponteiros	) 
+git tag -a v1.0 -m "Versao 1.0" (criando tag no commit atual) 
+	       (chave do commit)
+git tag -a v0.0 123dsa12ws112sa21 -m "Versão 0.0" (criando tag nos commits antigos)
+
+git show v0.0 (mostrando quem criou aquela tag, qual o autor, data, informações)
+
+git checkout v0.0 (FAZ A TROCA DOS ARQUIVOS PARA AQUELA TAG - Muda sua pasta para os arquivos daquela tag)
+
+--------------------------------------------------------------------------------------------------------
+GITHUB
+1) Você precisa dizer para sua conta do github que o teu pc pode acessar sua conta e gerenciar,
+   isso é feito através de uma chave ssh de autenticação. 
+   ssh-keygen (Gerando um par de chaves)
+   : depois disso vai apertando enter, e então ele irá mostrar o diretório de onde criou a chave. 
+   : abra o id_rsa.pub (abra como txt)
+2) Leve o código na sua conta: config/ssh key
+CRIE SEU REPOSITORIO
+3) Clone o repositorio para sua maquina atraves do codigo ssh:
+   git clone git@github.com:VictorVoid/curso-git.git RENOMEIANDONOME
+4) adicione seus arquivos... 
+
+5) faça o processo de git status, add . , commit -m "mensagem"
+
+6) Depois que fizer o commit, precisa mandar pro github:
+	git push origin master
+-------------------------------------------------------------------------------------------------------
+GITHUB com dois arquivos paralelos (caso pega um arquivo base)
+1) Faça o clone:
+ git clone git@github.com:VictorVoid/curso-git.git RENOMEIANDONOME2
+2) Crie seus arquivos
+
+3) git add ., commit...
+
+4) envie para o github:
+	git push origin master
+
+5) Se for no seu repositorio no github, vai ver que já tá adicionado
+
+6) para atualizar nosso arquivo 1 que tava salvo na nossa maquina:
+ utilize o pull
+   git pull origin master
+ (ae fica adicionado no primeiro arquivo o que tava no que acabou de fazer).
+--------------------------------------------------------------------------------------------------------
+FAZENDO COLABORAÇÕES: 
+1) Ache o projeto que deseja colaborar
+2) Faça o Fork para sua conta
+3) Clone para sua máquina: git clone {ssh.link} nomedapastaEdit
+4) Modifique o que deseja modificar, depois git add ., commit ) e mande para o site
+	git push oring master
+5) Faça um pull request (ele manda para o autor)
+
+6) New pull request (diz o titulo e comentários...)
+7) send pull request
+SEU TRABALHO DE COLABORAÇÕES FORAM CONCLUIDAS (agora o autor vai ver se aprova suas modificações)
+
+------------------------------------------------------------------------------------------------------
+ATUALIZANDO UM FORK
+
+git remote add suissa(usernamequalquer) giturl(basedofork)
+git pull --rebase suissa master
+git push -u
+------------------------------------------------------------------------------------------------------
+Criando branch
+git checkout -b new_branch_name
